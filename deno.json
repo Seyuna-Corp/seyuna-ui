@@ -1,0 +1,21 @@
+{
+  "name": "@seyuna/ui",
+  "version": "0.0.1-canary.9",
+  "exports": "./src/mod.ts",
+  "imports": {
+    "@/": "./src/",
+    "@deno/dnt": "jsr:@deno/dnt@^0.41.2",
+    "deno.json": "./deno.json",
+    "react": "npm:react@^18"
+  },
+  "tasks": {
+    "dev": "deno run --watch src/mod.ts"
+  },
+  "lint": {
+    "exclude": ["dist/"]
+  },
+  "fmt": {
+    "indentWidth": 4
+  },
+  "exclude": ["dist/"]
+}
