@@ -104,7 +104,7 @@ export type Breakpoints = {
     _3xl: number;
     _4xl: number;
     _5xl: number;
-    [key: number]: number;
+    [key: string]: number;
   };
 
   /**
@@ -120,6 +120,6 @@ export type Breakpoints = {
     _3xl: number;
     _4xl: number;
     _5xl: number;
-    [key: number]: number;
+    [key: string]: number;
   };
 };
