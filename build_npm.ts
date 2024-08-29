@@ -20,14 +20,14 @@ await build({
         // package.json properties
         name: "@seyuna/ui",
         version: pkg.version,
-        description: "Seyuna UI framework",
+        description: "Seyuna UI is not your average design system for React. It’s a game changer. Seyuna UI provides developers access to a sophisticated component ecosystem that is unique, fast, accessible and well-optimized for the modern web.",
         license: "MIT",
         repository: {
             type: "git",
-            url: "git+https://github.com/Seyuna-Inc/seyuna-ui.git",
+            url: "git+https://github.com/seyuna-corp/seyuna-ui.git",
         },
         bugs: {
-            url: "https://github.com/Seyuna-Inc/seyuna-ui/issues",
+            url: "https://github.com/seyuna-corp/seyuna-ui/issues",
         },
     },
     postBuild() {
