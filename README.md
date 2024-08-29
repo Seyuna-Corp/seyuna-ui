@@ -7,9 +7,9 @@
 
 <div align="center">
 
-![NPM](https://github.com/Seyuna-Corp/seyuna-ui/actions/workflows/npm.yml/badge.svg)
-![DENO](https://github.com/Seyuna-Corp/seyuna-ui/actions/workflows/deno.yml/badge.svg)
-![LICENSE](https://img.shields.io/github/license/Seyuna-Corp/seyuna-ui.svg)
+![NPM](https://github.com/seyuna-corp/seyuna-ui/actions/workflows/npm.yml/badge.svg)
+![DENO](https://github.com/seyuna-corp/seyuna-ui/actions/workflows/deno.yml/badge.svg)
+![LICENSE](https://img.shields.io/github/license/seyuna-corp/seyuna-ui.svg)
 [![DOCS](https://img.shields.io/badge/Docs-Read-blue)](https://seyuna.com/docs/ui)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 
