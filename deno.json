@@ -1,6 +1,6 @@
 {
   "name": "@seyuna/ui",
-  "version": "1.0.0-branch.0",
+  "version": "1.0.0-dev.0",
   "exports": "./src/mod.ts",
   "imports": {
     "@/": "./src/",
