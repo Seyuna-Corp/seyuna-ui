@@ -1,0 +1,25 @@
+{
+  "name": "@seyuna/ui",
+  "version": "1.0.0-dev.0",
+  "exports": "./src/mod.ts",
+  "imports": {
+    "@/": "./src/",
+    "@deno/dnt": "jsr:@deno/dnt@^0.41.2",
+    "deno.json": "./deno.json",
+    "react": "npm:react@^18"
+  },
+  "tasks": {
+    "dev": "deno run --watch src/mod.ts"
+  },
+  "lint": {
+    "exclude": [
+      "dist/"
+    ]
+  },
+  "fmt": {
+    "indentWidth": 2
+  },
+  "exclude": [
+    "dist/"
+  ]
+}

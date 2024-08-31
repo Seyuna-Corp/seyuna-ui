@@ -1,0 +1,12 @@
+# NPM
+node_modules
+npm
+
+# BUILD
+dist
+
+# ENVIRONMENT
+.env
+
+# Assets
+*.psd
