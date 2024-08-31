@@ -3,96 +3,106 @@ import type { Mode, Theme } from "@/theme/types.ts";
 /**
  * ## Seyuna UI Configuration
  *
- * Provides configuration options for the Seyuna UI framework.
+ * Represents the configuration options for the Seyuna UI framework,
+ * including application details, theming, and responsive design settings.
  *
- * For more details, see: https://seyuna.com/docs/ui/config
+ * @see {@link https://seyuna.com/docs/ui/config}
  */
 export interface Config {
   /**
    * The name of the application.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/meta#name
+   * @see {@link https://seyuna.com/docs/ui/config/meta#name}
    */
   name: string;
 
   /**
    * The slogan of the application.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/meta#slogan
+   * @see {@link https://seyuna.com/docs/ui/config/meta#slogan}
    */
   slogan: string;
 
   /**
-   * The default theme for the application.
+   * The default theme applied to the application.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/theme#default
+   * Specifies the theme name from the available themes that should be
+   * used by default.
+   *
+   * @see {@link https://seyuna.com/docs/ui/config/theme#default}
    */
   theme: string;
 
   /**
-   * The default mode of the application (e.g., light or dark mode).
+   * The default mode of the application (e.g., light, dark or system).
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/mode
+   * @see {@link https://seyuna.com/docs/ui/config/mode}
    */
   mode: Mode;
 
   /**
-   * Determines whether a CSS reset is applied to reduce inconsistencies across different browsers.
+   * Indicates whether a CSS reset is applied to normalize styling across
+   * different browsers.
    *
-   * It's recommended to keep this option enabled unless custom resets are used.
+   * Recommended to keep enabled unless a custom CSS reset is used.
    *
-   * For more details, see: https://seyuna.com/css-reset
+   * @see {@link https://seyuna.com/css-reset}
    */
   reset: boolean;
 
   /**
-   * The breakpoints used by the application for responsive design.
+   * Breakpoints for responsive design, specifying viewport and
+   * container sizes.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/breakpoints
+   * @see {@link https://seyuna.com/docs/ui/config/breakpoints}
    */
   breakpoints: Breakpoints;
 
   /**
-   * Specifies the breakpoint from which content upscaling should begin, ensuring consistency across higher resolutions.
+   * Specifies the breakpoint from which content should be upscaled to
+   * ensure consistency on larger screens.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/scaling
+   * @see {@link https://seyuna.com/docs/ui/config/scaling}
    */
   upscale: "lg" | "xl" | "_2xl" | "_3xl" | "_4xl" | string;
 
   /**
-   * The default spacing value, in rem units, used by all components in the Seyuna ecosystem.
+   * Default spacing value in rem units used by all components.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/spacing
+   * Affects the margin, padding, and spacing throughout the application.
+   *
+   * @see {@link https://seyuna.com/docs/ui/config/spacing}
    */
   spacing: number;
 
   /**
-   * An array of themes available in the application.
+   * Array of available themes for the application.
    *
-   * Seyuna allows multiple themes to be defined and be used.
+   * Allows multiple themes to be defined and switched as needed.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/theme#themes
+   * @see {@link https://seyuna.com/docs/ui/config/theme#themes}
    */
   themes: Theme[];
 
   /**
-   * The directory path where Seyuna will generate the necessary files.
+   * Directory path where Seyuna will generate necessary files.
    *
-   * For more details, see: https://seyuna.com/docs/ui/config/path
+   * @see {@link https://seyuna.com/docs/ui/config/path}
    */
   path: string;
 }
 
 /**
- * ## Breakpoints
+ * Defines viewport and container breakpoints for responsive design.
  *
- * Defines the viewport and container breakpoints for the application.
+ * Specifies the sizes in **pixel (px)** for viewport breakpoints and
+ * **rem** units for container breakpoints.
  *
- * For more details, see: https://seyuna.com/docs/ui/config/breakpoints
+ * @see {@link https://seyuna.com/docs/ui/config/breakpoints}
  */
 export type Breakpoints = {
   /**
-   * Viewport breakpoints, defined in pixel (px) units.
+   * Viewport breakpoints in pixel units.
    */
   viewport: {
     xs: number;
@@ -108,7 +118,7 @@ export type Breakpoints = {
   };
 
   /**
-   * Container breakpoints, defined in rem units.
+   * Container breakpoints in rem units.
    */
   container: {
     xs: number;

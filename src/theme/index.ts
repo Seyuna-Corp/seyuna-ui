@@ -1,10 +1,12 @@
 import type { Theme } from "./types.ts";
 
 /**
- * Default theme
+ * Represents the default theme configuration for Seyuna UI.
  *
- * @returns Seyuna **Theme** object
- * @see {@link https://seyuna.com/docs/ui/config/theme#default}
+ * This theme provides a predefined set of color values and mode settings
+ * to offer a starting point for theming the application.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme#default} for more details.
  */
 export const defaultTheme: Theme = {
   name: "default",
@@ -25,29 +27,33 @@ export const defaultTheme: Theme = {
       nu: "332.3076923076923",
     },
     light: {
-      background: {
-        lightness: "100%",
-        chroma: "0",
-        hue: "0",
-      },
-      textColor: {
-        lightness: "0%",
-        chroma: "0",
-        hue: "0",
+      colors: {
+        background: {
+          lightness: "100%",
+          chroma: "0",
+          hue: "0",
+        },
+        textColor: {
+          lightness: "0%",
+          chroma: "0",
+          hue: "0",
+        },
       },
       lightness: "60%",
       chroma: "0.25",
     },
     dark: {
-      background: {
-        lightness: "0%",
-        chroma: "0",
-        hue: "0",
-      },
-      textColor: {
-        lightness: "100%",
-        chroma: "0",
-        hue: "0",
+      colors: {
+        background: {
+          lightness: "0%",
+          chroma: "0",
+          hue: "0",
+        },
+        textColor: {
+          lightness: "100%",
+          chroma: "0",
+          hue: "0",
+        },
       },
       lightness: "70%",
       chroma: "0.25",
@@ -56,6 +62,8 @@ export const defaultTheme: Theme = {
 };
 
 /**
- * Export all types
+ * Re-exports all types from the `types.ts` module.
+ *
+ * This makes all the types defined in `types.ts` available for import from this module.
  */
 export type * from "./types.ts";

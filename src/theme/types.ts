@@ -1,56 +1,65 @@
 /**
- * Seyuna theme object.
+ * Represents the Seyuna theme configuration.
  *
- * See more: https://seyuna.com/docs/ui/config/theme
+ * Defines the properties of a theme, including its name and associated color palette.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme}
  */
 export type Theme = {
   /**
    * The name of the theme.
    *
-   * See more: https://seyuna.com/docs/ui/config/theme#name
+   * @see {@link https://seyuna.com/docs/ui/config/theme#name}
    */
   name: string;
 
   /**
-   * The color palette of the theme.
+   * The color palette used by the theme.
    *
-   * See more: https://seyuna.com/docs/ui/config/theme#palette
+   * @see {@link https://seyuna.com/docs/ui/config/theme#palette}
    */
   palette: Palette;
 };
 
 /**
- * A color palette defined in OKLCH.
+ * A color palette defined using the OKLCH color model.
  *
- * See more: https://seyuna.com/docs/ui/config/theme#palette
+ * This palette defines color values in terms of hue, lightness, and chroma for different theme modes.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme#palette}
  */
 export type Palette = {
   /**
-   * Colors are defined using the hue point only in order to keep colors consistent in terms of lightness and chroma.
+   * A collection of colors defined by hue to maintain consistency
+   * in lightness and chroma across different elements.
    *
-   * See more: https://seyuna.com/docs/ui/config/theme#palette-colors
+   * @see {@link https://seyuna.com/docs/ui/config/theme#palette-colors}
    */
   colors: Colors;
 
   /**
-   * The default color values for light mode.
+   * The default color settings for light mode, based on the OKLCH model.
+   * This includes lightness and chroma adjustments specific to light themes.
    *
-   * See more: https://seyuna.com/docs/ui/config/theme#palette-light
+   * @see {@link https://seyuna.com/docs/ui/config/theme#palette-light}
    */
   light: ModeSettings;
 
   /**
-   * The default color values for dark mode.
+   * The default color settings for dark mode, tailored for optimal contrast
+   * and readability in low-light environments, using the OKLCH model.
    *
-   * See more: https://seyuna.com/docs/ui/config/theme#palette-dark
+   * @see {@link https://seyuna.com/docs/ui/config/theme#palette-dark}
    */
   dark: ModeSettings;
 };
 
 /**
- * Pre-defined color mappings for the theme.
+ * Pre-defined hue mappings for various theme color roles.
  *
- * See more: https://seyuna.com/docs/ui/config/theme#colors
+ * Each key represents a specific color role in the theme, with its corresponding hue value.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme#colors}
  */
 export type Colors = {
   alpha: Hue;
@@ -69,20 +78,32 @@ export type Colors = {
 };
 
 /**
- * Pre-defined color settings for mode.
+ * Defines the color configuration settings for the current theme mode.
  *
- * See more: https://seyuna.com/docs/ui/config/theme#mode
+ * @see {@link https://seyuna.com/docs/ui/config/theme#mode}
  */
 export type ModeSettings = {
   /**
-   * The default background color for the current mode.
+   * Color definitions specific to the current theme mode.
+   *
+   * @see {@link https://seyuna.com/docs/ui/config/theme#mode-colors}
    */
-  background: Color;
+  colors: {
+    /**
+     * The default background color for the current mode.
+     */
+    background: Color;
 
-  /**
-   * The default text color for the current mode.
-   */
-  textColor: Color;
+    /**
+     * The default text color for the current mode.
+     */
+    textColor: Color;
+
+    /**
+     * Additional user-defined colors specific to the mode.
+     */
+    [x: string]: Color;
+  };
 
   /**
    * The default OKLCH lightness for the current mode.
@@ -96,21 +117,26 @@ export type ModeSettings = {
 };
 
 /**
- * Represents a color in OKLCH format.
+ * Represents a color defined using the OKLCH color model.
  *
- * See more: https://seyuna.com/docs/ui/config/theme#color
+ * The OKLCH model breaks down color into three components: lightness, chroma, and hue,
+ * allowing for precise control over color attributes.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme#color}
  */
 export type Color = {
   /**
-   * OKLCH Lightness Component
+   * The lightness component of the color, representing its brightness.
    */
   lightness: Lightness;
+
   /**
-   * OKLCH Chroma Component
+   * The chroma component of the color, indicating its colorfulness or intensity.
    */
   chroma: Chroma;
+
   /**
-   * OKLCH Hue Component
+   * The hue component of the color, representing the angle on the color wheel.
    */
   hue: Hue;
 };
@@ -131,8 +157,15 @@ export type Chroma = string;
 export type Lightness = string;
 
 /**
- * The mode of the theme.
+ * Defines the theme mode.
  *
- * See more: https://seyuna.com/docs/ui/config/theme#mode
+ * This specifies how the theme should adjust based on environmental factors or user preferences.
+ *
+ * - **"light"**: Sets the theme default mode as "light".
+ * - **"dark"**: Sets the theme default mode as "dark".
+ * - **"system"**: Automatically adapts to the system's current mode setting.
+ * - **"time"**: Adjusts the theme mode based on the time of day.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config/theme#mode}
  */
 export type Mode = "light" | "dark" | "system" | "time";

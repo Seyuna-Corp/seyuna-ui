@@ -2,10 +2,11 @@ import { defaultTheme } from "@/theme/index.ts";
 import type { Config } from "./types.ts";
 
 /**
- * Default configuration
+ * Default configuration settings for Seyuna UI.
  *
- * @returns Seyuna **Config** object
- * @see {@link https://seyuna.com/docs/ui/config#default}
+ * Provides a set of default values for the UI configuration, including theme, breakpoints, and other settings.
+ *
+ * @see {@link https://seyuna.com/docs/ui/config#default} for comprehensive details on the default configuration.
  */
 export const defaultConfig: Config = {
   name: "Seyuna",
@@ -44,15 +45,20 @@ export const defaultConfig: Config = {
 };
 
 /**
- * Merge configuration
+ * Merges the provided configuration with the default configuration.
  *
- * @returns Seyuna **Config** object
+ * Combines the default configuration with user-provided settings, with user settings overriding defaults.
+ *
+ * @param config - User-provided configuration settings
+ * @returns The merged Seyuna **Config** object
  */
 export const mergeSeyunaConfig = (config: Config): Config => {
   return { ...defaultConfig, ...config };
 };
 
 /**
- * Export all types
+ * Re-exports all types from the `types.ts` module.
+ *
+ * This makes all the types defined in `types.ts` available for import from this module.
  */
 export type * from "./types.ts";

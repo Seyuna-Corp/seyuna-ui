@@ -1,6 +1,6 @@
 {
   "name": "@seyuna/ui",
-  "version": "0.0.2-canary.0",
+  "version": "1.0.0-dev.0",
   "exports": "./src/mod.ts",
   "imports": {
     "@/": "./src/",
