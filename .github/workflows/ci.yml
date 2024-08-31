@@ -29,19 +29,25 @@ jobs:
 
       - name: Update version in deno.json
         run: |
+          # Debug: Print branch name and current version
+          echo "Branch name: ${{ github.ref_name }}"
+          
           # Get the branch name
           BRANCH_NAME=${{ github.ref_name }}
-
+          
           # Extract current version from deno.json
           CURRENT_VERSION=$(jq -r '.version' deno.json)
+          echo "Current version: $CURRENT_VERSION"
 
           if [ "$BRANCH_NAME" == "main" ]; then
             # Remove everything after and including the "-" for the main branch
             NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E 's/-.*//')
           else
             # Replace "branch" with the current branch name for non-main branches
-            NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/branch/$BRANCH_NAME/")
+            NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/branch/${BRANCH_NAME//\//\\/}/")
           fi
+
+          echo "New version: $NEW_VERSION"
 
           # Update the version in deno.json
           jq --arg version "$NEW_VERSION" '.version = $version' deno.json > tmp.json && mv tmp.json deno.json
