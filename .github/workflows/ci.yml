@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - next
+      - dev
+  pull_request:
+    branches:
+      - main
+      - next
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: vx.x.x
+
+      - name: Run Deno linter
+        run: deno lint
+
+      - name: Run Deno code formatter
+        run: deno fmt
+
+      - name: Update version in deno.json
+        run: |
+          # Get the branch name
+          BRANCH_NAME=${{ github.ref_name }}
+
+          # Extract current version from deno.json
+          CURRENT_VERSION=$(jq -r '.version' deno.json)
+
+          if [ "$BRANCH_NAME" == "main" ]; then
+            # Remove everything after and including the "-" for the main branch
+            NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E 's/-.*//')
+          else
+            # Replace "branch" with the current branch name for non-main branches
+            NEW_VERSION=$(echo "$CURRENT_VERSION" | sed -E "s/branch/$BRANCH_NAME/")
+          fi
+
+          # Update the version in deno.json
+          jq --arg version "$NEW_VERSION" '.version = $version' deno.json > tmp.json && mv tmp.json deno.json
+
+          # Print the updated deno.json for verification
+          cat deno.json
