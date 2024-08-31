@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        name: Checkout code
+
       - uses: denoland/setup-deno@v1
         with:
           deno-version: vx.x.x
@@ -52,5 +54,18 @@ jobs:
           # Update the version in deno.json
           jq --arg version "$NEW_VERSION" '.version = $version' deno.json > tmp.json && mv tmp.json deno.json
 
-          # Print the updated deno.json for verification
+          # Debug: Print the deno.json before updating
+          echo "Before update:"
           cat deno.json
+
+          # Print the updated deno.json for verification
+          echo "After update:"
+          cat deno.json
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'deno.json'
+          message: 'Update deno.json version based on branch name'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
