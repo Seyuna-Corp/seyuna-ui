@@ -26,9 +26,6 @@ jobs:
       - name: Run Deno linter
         run: deno lint
 
-      - name: Run Deno code formatter
-        run: deno fmt
-
       - name: Update version in deno.json
         run: |
           # Debug: Print branch name and current version
