@@ -39,8 +39,10 @@ export const defaultTheme: Theme = {
           hue: "0",
         },
       },
-      lightness: "60%",
-      chroma: "0.25",
+      preferences: {
+        lightness: "60%",
+        chroma: "0.25",
+      },
     },
     dark: {
       colors: {
@@ -55,8 +57,10 @@ export const defaultTheme: Theme = {
           hue: "0",
         },
       },
-      lightness: "70%",
-      chroma: "0.25",
+      preferences: {
+        lightness: "70%",
+        chroma: "0.25",
+      },
     },
   },
 };

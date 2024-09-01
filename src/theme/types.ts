@@ -106,14 +106,26 @@ export type ModeSettings = {
   };
 
   /**
-   * The default OKLCH lightness for the current mode.
+   * Preferences specific to the current theme mode.
+   *
+   * @see {@link https://seyuna.com/docs/ui/config/theme#mode-colors}
    */
-  lightness: Lightness;
+  preferences: {
+    /**
+     * The default OKLCH lightness for the current mode.
+     */
+    lightness: Lightness;
 
-  /**
-   * The default OKLCH chroma for the current mode.
-   */
-  chroma: Chroma;
+    /**
+     * The default OKLCH chroma for the current mode.
+     */
+    chroma: Chroma;
+
+    /**
+     * Additional user-defined preferences for the current mode.
+     */
+    [x: string]: string;
+  };
 };
 
 /**
